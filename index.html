@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="row">
+      <div id="container"> <!-- content pass here --> </div>
+      <button id="add-new">Thêm mới</button>
+              <!-- The Modal -->
+        <div id="myModal" class="modal">
+          <!-- Modal content --> 
+          <div class="modal-content">
+            <span class="close">&times;</span>
+
+            <form action="" id="add-form">
+              <div>
+                <label for="" >Tiêu đề</label>
+                <input type="text" id="title" name="title">
+              </div>
+              <div>
+                <label for="" >Nội Dung: </label>
+                <textarea id="content" name="content"></textarea>
+              </div>
+              <select name="rating" id="rating">  
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <h2>các bước thực hiện</h2>
+              <div id="inputsContainer"><!-- step description pass here --></div>
+              
+              <button type="button" onclick="addInputFields()" id="add-step" class="add" type="button" class="button-80" role="button" 
+              style="background: green; color: #fff; margin-top: 1%;">Thêm bước</button>
+
+            </form>
+            <button  onclick="getFormData()" id="addContent" class="addContent" type="button" class="button-80" role="button" 
+            style="background: green; color: #fff; margin-top: 1%;" >Thêm</button>
+            <button   id="update-data" class="updateContent" type="button" class="button-80" role="button" 
+            style="background: green; color: #fff; margin-top: 1%;" >Sửa</button>
+          </div>
+
+        </div>
+
+        <script>
+
+          </script>
+          
+  
+    <script src="./main.js"></script> 
+</body>
+</html>

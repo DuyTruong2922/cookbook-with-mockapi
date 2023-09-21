@@ -388,6 +388,9 @@
 
 
 .button-add {
+  position: fixed;
+  top: 0;
+  right: 0px; 
   color: #fff;
   text-align: center;
   letter-spacing: .06em;

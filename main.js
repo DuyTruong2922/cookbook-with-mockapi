@@ -151,8 +151,6 @@ async function loadDatas() {
 const newInputDiv = document.createElement("div");
 
 function addInputFields() {
-
-  
     // Create the step input field
     const step = document.createElement("input");
     step.type = "text";
@@ -170,12 +168,21 @@ function addInputFields() {
      img.type = "file";
      img.className = "img";
      img.name = "img";
-     
+
+    // Create the delete input field
+    const deleteStep = document.createElement("input");
+    deleteStep.type = "button" 
+    deleteStep.className = "delete-step";
+    deleteStep.name = "delete-step";
+    deleteStep.value = "xoá bước"
+    deleteStep.onclick = function(){step.remove();stepDescription.remove();img.remove();this.remove()};
   
     // Append the input fields to the new div
+ 
     newInputDiv.appendChild(step);
     newInputDiv.appendChild(stepDescription);
     newInputDiv.appendChild(img);
+    newInputDiv.appendChild(deleteStep);
   
     // Append the new div to the inputs container
     inputsContainer.appendChild(newInputDiv);
@@ -184,9 +191,14 @@ function addInputFields() {
 
   }
 
-  function closeInputDiv(params) {
-    
-  }
+
+
+const remove = document.getElementsByClassName('remove');
+remove.onclick = function () {
+  
+    document.getElementById('did').remove();
+    this.remove();
+};
 
 function base64img() {
 // Handle file selection for each input field
@@ -368,12 +380,20 @@ function getUpdateData(id) {
                 changeImg.className = "img";
                 changeImg.name = "img";
 
+                // Create the delete input field
+                const deleteStep = document.createElement("input");
+                deleteStep.type = "button" 
+                deleteStep.className = "delete-step";
+                deleteStep.name = "delete-step";
+                deleteStep.value = "xoá bước"
+                deleteStep.onclick = function(){step.remove();stepDescription.remove();img.remove(); filesArray.splice(i, 1);this.remove();changeImg.remove()};
+
                 // Append the input fields to the new div
                 newInputDiv.appendChild(step);
                 newInputDiv.appendChild(stepDescription);
                 newInputDiv.appendChild(img);
                 newInputDiv.appendChild(changeImg);
-                
+                newInputDiv.appendChild(deleteStep);
                 // Append the new div to the inputs container
                 inputsContainer.appendChild(newInputDiv);
                 

@@ -5,10 +5,20 @@
   }
   
   *{
-    margin: auto;
-    text-align: center;
-  }
+    box-sizing: border-box;  }
   
+    body {
+      color: #615e5d;
+      background-color: #fff;
+      flex-direction: column;
+      font-family: Jost,sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1.5em;
+      display: flex;
+      text-align: center;
+      background-color: #f4f2f0;
+    }
   
   form {
     max-width: 300px;
@@ -117,10 +127,7 @@
   
   }
 
-  
-
-
-    /* CSS */
+  /* button style */
 .button-80 {
 
   backface-visibility: hidden;
@@ -269,44 +276,7 @@
     margin-right: 0%;
    }
 
-  .collapsible {
-  background-color: #777;
-  color: white;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-  padding-top: 2%;
-}
-
-.active, .collapsible:hover {
-  background-color: #555;
-}
-
-.showContent {
-  padding: 0 18px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-}
-
-
-.collapsible:after {
-  content: '\02795'; /* Unicode character for "plus" sign (+) */
-  font-size: 13px;
-  color: white;
-  float: right;
-  margin-left: 5px;
-}
-
-.active:after {
-  content: "\2796"; /* Unicode character for "minus" sign (-) */
-}
-
-
+ 
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -345,3 +315,146 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+
+.accordion-header {
+  width: 75%;
+  background-color: #e7e7e7;
+  margin-top: 2%;
+  cursor: pointer;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  transition: padding .2s cubic-bezier(.25,.46,.45,.94);
+  display: flex;
+  border-top-right-radius: 40px;
+}
+.accordion-heading {
+  color: #1f1b1a;
+  margin-top: 0;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2em;
+  margin-bottom: 0;
+  margin-right: 25px;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Cantarell,Helvetica Neue,Oxygen,Fira Sans,Droid Sans,sans-serif;
+}
+
+.accordion-content {
+  width: 75%;
+  background-color: #e7e7e7;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 24px;
+  padding-right: 24px;
+  display: none;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+
+.accordion-content select {
+  max-width: 70%;
+}
+.accordion-content button {
+  margin-left: 1%;
+}
+
+.accordion-header:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: white;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+.container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  margin-left: 0;
+  padding: 100px 25px;
+  display: flex;
+  position: relative;
+  padding-top: 65px;
+  padding-bottom: 65px;
+}
+
+
+.button-add {
+  color: #fff;
+  text-align: center;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  background-color: #0b3953;
+  border-radius: 50px;
+  padding: 20px 37px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2em;
+  transition: background-color .3s cubic-bezier(.25,.46,.45,.94),transform .3s cubic-bezier(.25,.46,.45,.94);
+}
+.img-container {
+  width: 150px;
+  
+  margin-right: 15px;
+}
+
+.img-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+
+}
+
+.step-img {
+  border-top: 1px solid black;
+  margin: 0.5rem;
+  padding: 1rem 1rem;
+  text-align: start;
+}
+
+.step-img-child {
+  display: inline-block;
+}
+
+
+.title-2 {
+  margin-bottom: 22px;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Cantarell,Helvetica Neue,Oxygen,Fira Sans,Droid Sans,sans-serif;
+}
+.subtitle-2 {
+  color: #00a36c;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-family: Handlee,sans-serif;
+  font-size: 22px;
+  line-height: 1.3em;
+}
+/* STARS DISPLAY */
+/* .stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+}
+.stars-outer::before {
+  content: "\f006 \f006 \f006 \f006 \f006";
+}
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+.stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: #f8ce0b;
+} */

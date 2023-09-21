@@ -2,7 +2,7 @@
 const mockLink = "https://64dc646de64a8525a0f66d77.mockapi.io/TruongDzz"
 
 const ctn = document.getElementById("container")
-const coll = document.getElementsByClassName("collapsible");
+const coll = document.getElementsByClassName("accordion-header");
 
 const title = document.getElementById("title");
 const content = document.getElementById("content");
@@ -66,9 +66,19 @@ async function loadDatas() {
 
         // return result;
         for (let i = 0; i < result.length; i++) {
+
+          
             ctn.innerHTML +=
-                '<button type="button" class="collapsible">'+'📖 ' + result[i].title + '</button>'+ 
-                '<div class="showContent" id="item-content'+ i + '">' +
+                '<div class="accordion-header">'+
+                '<h6 class="accordion-heading">'+ '📖 ' +result[i].title+'</h6>' + 
+                // STARS DISPLAY 
+                // '<div class="stars-outer"'+
+                //   '<div class="stars-inner"></div>'+
+                // '</div>'+
+                 '</div>'+ 
+
+                '<div class="accordion-content" id="item-content'+ i + '">' +
+                '<div class="item-toolbox">'+
                 // Rating change
                 // =======================================
                 '<select name="rating" id="ratingChanger'+result[i].id+'" onchange="ratingChanger('+result[i].id+')">'+
@@ -80,35 +90,50 @@ async function loadDatas() {
                 '<option value="5">5</option>'+
                 '</select>'+
                 // =====================================
-                'content: '+ result[i].content+
-                '<button class ="button-80" style="background: red;color: white;" onclick="removeData('+result[i].id+')">'+"Xoá"+'</button>'+ 
-                '<button class ="button-80" style="background: orange;color: white;" onclick="getUpdateData('+result[i].id+') ">'+"Sửa"+'</button> '+
-                '</div>';
 
+                '<button onclick="removeData('+result[i].id+')">'+"🗑"+'</button>'+ 
+                '<button onclick="getUpdateData('+result[i].id+') ">'+"🛠"+'</button> '+
+                '</div>'+
+
+                '<h5>'+result[i].content+'</h5>'+
+                '</div>';
+                
+              
             
             let step_stepDescription = result[i].step_descriptons;
             const stepDisplay = document.getElementById("item-content" + i);
 
             for (let j = 0; j < step_stepDescription.length; j++) {
                 stepDisplay.innerHTML +=
-                '<div class = "step-img">'+
+                '<div class = "step-img ">'+
+                    '<div class="img-container step-img-child">'+
+                    '<img src = "' + step_stepDescription[j].image + '">'+
+                    '</div>'+
+                    
+                    '<div class="step-img-child">'+
                     step_stepDescription[j].step+
                     step_stepDescription[j].description+
-                    '<img src = "' + step_stepDescription[j].image + '">'+'</div>' ;
+                    '</div>'+
+                    '</div>' ;
             }
+
+
         }
 
         for (let i = 0; i < coll.length; i++) {
             coll[i].addEventListener("click", function() {
               this.classList.toggle("active");
               const showContent = this.nextElementSibling;
-              if (showContent.style.display === "contents") {
+              if (showContent.style.display === "block") {
                   showContent.style.display = "none";
               } else {
-                  showContent.style.display = "contents";
+                  showContent.style.display = "block";
               }
             });
           }
+
+          
+          
     } catch (err) { }
 }
 
@@ -405,17 +430,26 @@ async function updateData(data,id) {
 // --------------------------------------------------------------------
 // RATING
 function ratingChanger(id) {
-  const ratingChanger = document.getElementById("ratingChanger"+id).value;
-  console.log("id: "+id+" ,rating: "+ratingChanger);
+  // const ratingChanger = document.getElementById("ratingChanger"+id).value;
+  // console.log("id: "+id+" ,rating: "+ratingChanger);
 
-  const apiUrl = mockLink+"/"+ id ;
-  fetch(apiUrl)
-  .then(response => response.json())
-  .then(data => {
-    console.log("data that change rating: "+data);
-    data.rating = ratingChanger;
-    updateData(data,id);
-  })
+  // const apiUrl = mockLink+"/"+ id ;
+  // fetch(apiUrl)
+  // .then(response => response.json())
+  // .then(data => {
+  //   console.log("data that change rating: "+data);
+  //   data.rating = ratingChanger;
+  //   updateData(data,id);
+  // })
+
+  const star = document.getElementsByName("rating-star"+result.id)
+  // const star = document.getElementsByClassName("ratingChanger"+id)
+    for (let i = 0; i  < star.length; i++) {
+      if (star[i].checked) {
+    console.log("data that change rating: "+star[i].value);
+      }
+      
+    }
 }
 
 loadDatas();

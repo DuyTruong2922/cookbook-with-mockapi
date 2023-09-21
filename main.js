@@ -96,6 +96,7 @@ async function loadDatas() {
                 '</div>'+
 
                 '<h5>'+result[i].content+'</h5>'+
+                '<h3> The Steps: </h3>'+ 
                 '</div>';
                 
               
@@ -111,8 +112,8 @@ async function loadDatas() {
                     '</div>'+
                     
                     '<div class="step-img-child">'+
-                    step_stepDescription[j].step+
-                    step_stepDescription[j].description+
+                    '<h4>'+ step_stepDescription[j].step+ '</h4>'+
+                    '<h6>'+ step_stepDescription[j].description+'</h6>'+
                     '</div>'+
                     '</div>' ;
             }

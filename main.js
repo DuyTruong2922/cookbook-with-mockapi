@@ -451,26 +451,18 @@ async function updateData(data,id) {
 // --------------------------------------------------------------------
 // RATING
 function ratingChanger(id) {
-  // const ratingChanger = document.getElementById("ratingChanger"+id).value;
-  // console.log("id: "+id+" ,rating: "+ratingChanger);
+  const ratingChanger = document.getElementById("ratingChanger"+id).value;
+  console.log("id: "+id+" ,rating: "+ratingChanger);
 
-  // const apiUrl = mockLink+"/"+ id ;
-  // fetch(apiUrl)
-  // .then(response => response.json())
-  // .then(data => {
-  //   console.log("data that change rating: "+data);
-  //   data.rating = ratingChanger;
-  //   updateData(data,id);
-  // })
+  const apiUrl = mockLink+"/"+ id ;
+  fetch(apiUrl)
+  .then(response => response.json())
+  .then(data => {
+    console.log("data that change rating: "+data);
+    data.rating = ratingChanger;
+    updateData(data,id);
+  })
 
-  const star = document.getElementsByName("rating-star"+result.id)
-  // const star = document.getElementsByClassName("ratingChanger"+id)
-    for (let i = 0; i  < star.length; i++) {
-      if (star[i].checked) {
-    console.log("data that change rating: "+star[i].value);
-      }
-      
-    }
 }
 
 loadDatas();
